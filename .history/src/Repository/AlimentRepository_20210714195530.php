@@ -26,7 +26,7 @@ class AlimentRepository extends ServiceEntityRepository
     public function getAlimentsByCalorie($calorie)
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.calories < :val')
+            ->andWhere('a.calories = :val')
             ->setParameter('val', $calorie)
             ->getQuery()
             ->getResult()

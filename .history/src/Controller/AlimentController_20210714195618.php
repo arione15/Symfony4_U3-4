@@ -16,20 +16,18 @@ class AlimentController extends AbstractController
     {
         $aliments = $repository -> findAll();
         return $this->render('aliment/aliments.html.twig', [
-            "aliments" => $aliments,
-            "isCalorie" => false
+            "aliments" => $aliments
         ]);
     }
 
     /**
-     * @Route("/aliments/{calorie}", name="alimentParCalorie")
+     * @Route("/aliments/{calorie}", name="aliments")
      */
-    public function alimentsMoinsCalorique(AlimentRepository $repository, $calorie)
+    public function afficherAliments(AlimentRepository $repository)
     {
         $aliments = $repository -> getAlimentsByCalorie($calorie);
         return $this->render('aliment/aliments.html.twig', [
-            "aliments" => $aliments,
-            "isCalorie" => true
+            "aliments" => $aliments
         ]);
     }
 }

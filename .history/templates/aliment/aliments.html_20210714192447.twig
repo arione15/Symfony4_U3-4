@@ -3,12 +3,11 @@
 {% block title %}Aliments
 {% endblock %}
 {% block monTitre %}Liste des aliments
-{% if isCalorie %} avec moins de 50 calories{% endif %}
 {% endblock %}
 
 {% block body %}
-	<a href="{{ path("aliments") }}" class="btn btn-primary">tous</a>
-    <a href="{{ path("alimentParCalorie", {'calorie': 50}) }}" class="btn btn-primary">Aliments avec moins de 50 calories au 100g</a>
+	<a href="{{path("afficher_aliments")}}" class="btn btn-primary">tous</a>
+	{# <a href="{{path("alimentsParCalorie",{"calorie":50})}}" class="btn btn-primary">Aliments avec moins de 50 calories au 100g</a> #}
 	{# <a href="{{path("alimentsParGlucides",{"glucide":5})}}" class="btn btn-primary">Aliments avec moins de 5 glucides au 100g</a> #}
 	<div class="row">
 		{% for aliment in aliments %}
@@ -23,9 +22,9 @@
 							<h4 class="text-center">Prix (kilo) :
 								{{aliment.prix}}</h4>
 							<table class="table text-center">
-								<tr class="table-primary">
-									<th>Propriété</th>
-									<th>Valeur (100g)</th>
+								<th class="table-primary">
+									<td>Propriété</td>
+									<td>Valeur (100g)</td>
 								</tr>
 								<tr>
 									<td>Calorie</td>
