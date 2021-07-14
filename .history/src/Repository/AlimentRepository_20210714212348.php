@@ -27,7 +27,8 @@ class AlimentRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.' .$propriete. '' .$signe. ' :val')
-            ->setParameter('val', $valeur)
+            ->setParameter('val', $    public function getAlimentsByProperty($propriete, $signe, $valeur)
+)
             ->getQuery()
             ->getResult()
         ;

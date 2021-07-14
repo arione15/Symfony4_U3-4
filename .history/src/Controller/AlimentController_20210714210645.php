@@ -23,7 +23,7 @@ class AlimentController extends AbstractController
     }
 
     /**
-     * @Route("/aliments/calorie/{calorie}", name="alimentParCalorie")
+     * @Route("/aliments/{calorie}", name="alimentParCalorie")
      */
     public function alimentsMoinsCalorique(AlimentRepository $repository, $calorie)
     {

@@ -23,7 +23,7 @@ class AlimentController extends AbstractController
     }
 
     /**
-     * @Route("/aliments/calorie/{calorie}", name="alimentParCalorie")
+     * @Route("/aliments/{calorie}", name="alimentParCalorie")
      */
     public function alimentsMoinsCalorique(AlimentRepository $repository, $calorie)
     {
@@ -35,9 +35,9 @@ class AlimentController extends AbstractController
         ]);
     }
     /**
-     * @Route("/aliments/glucide/{glucide}", name="alimentsParGlucides")
+     * @Route("/aliments/{glucide}", name="alimentParGlucide")
      */
-    public function alimentsMoinsGlicimique(AlimentRepository $repository, $glucide)
+    public function alimentsMoinsCalorique(AlimentRepository $repository, $glucide)
     {
         $aliments = $repository -> getAlimentsByProperty('glucides', '<', $glucide);
         return $this->render('aliment/aliments.html.twig', [
