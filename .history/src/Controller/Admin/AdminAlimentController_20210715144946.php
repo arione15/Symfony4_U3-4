@@ -26,7 +26,7 @@ class AdminAlimentController extends AbstractController
      */
     public function modifierAliment(Aliment $aliment)
     {
-        $form = $this -> createForm(AlimentType::class, $aliment);
+        $form = $this -> createForm(AlimentType::class, );
         return $this->render('admin/admin_aliment/modificationAliment.html.twig', [
             'aliment' => $aliment,
             'form' => $form -> createView()
