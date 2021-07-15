@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification
+{% endblock %}
+{% block monTitre %}Modification
+	{{ aliment.nom }}
+
+{% endblock %}
+
+{% block body %}
+
+	{{ form_start(form) }}
+<div class="row">
+<div class
+	{{ form_widget(form) }}
+
+	{{ form_end(form) }}
+
+<input type="submit" value="Enregistrer" class="btn btn-primary" href="">
+{% endblock %}

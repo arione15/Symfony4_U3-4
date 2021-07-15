@@ -5,7 +5,8 @@ namespace App\Controller\Admin;
 use App\Entity\Aliment;
 use App\Form\AlimentType;
 use App\Repository\AlimentRepository;
-use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ObjectManager;
+use \ORM\;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,7 +27,7 @@ class AdminAlimentController extends AbstractController
     /**
      * @Route("/admin/aliment/{id}", name="admin_aliment_modification")
      */
-    public function modifierAliment(Aliment $aliment, Request $request, EntityManagerInterface $objectManager)
+    public function modifierAliment(Aliment $aliment, Request $request, ObjectManager $objectManager)
     {
         $form = $this -> createForm(AlimentType::class, $aliment);
         $form -> handleRequest($request);
