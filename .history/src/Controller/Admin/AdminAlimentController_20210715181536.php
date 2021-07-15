@@ -43,7 +43,7 @@ class AdminAlimentController extends AbstractController
         return $this->render('admin/admin_aliment/modificationAliment.html.twig', [
             'aliment' => $aliment,
             'form' => $form -> createView(),
-            'isModification' => $aliment -> getId() !== null
+            'isModification' => $aliment -> getId() 
         ]);
     }
 }
