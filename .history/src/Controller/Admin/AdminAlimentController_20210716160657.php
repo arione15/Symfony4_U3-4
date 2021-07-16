@@ -26,16 +26,16 @@ class AdminAlimentController extends AbstractController
 
     /**
      * @Route("/admin/aliment/creation", name="admin_aliment_creation")
-     * @Route("/admin/aliment/{id}", name="admin_aliment_modification", methods="GET|POST")
+     * @Route("/admin/aliment/{id}", name="admin_aliment_modification", methods="POST")
      */
     public function modifierEtAjouterAliment(Aliment $aliment = null, Request $request, EntityManagerInterface $entityManager)
     {
-        if(!$aliment) {
+        if (!$aliment) {
             $aliment = new Aliment();
         }
         $form = $this->createForm(AlimentType::class, $aliment);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($aliment);
             $entityManager->flush();
             return $this->redirectToRoute('admin_aliment');
@@ -48,12 +48,13 @@ class AdminAlimentController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/admin/aliment/{id}", name="admin_aliment_suppression", methods="delete")
      */
     public function suppression(Aliment $aliment, Request $request, EntityManagerInterface $entityManager)
     {
-        if ($this->isCsrfTokenValid("delete".$aliment->getId(), $request->get('_token'))) {
+        if ($this->isCsrfTokenValid("del".$aliment->getId(), $request->get('_token'))) {
             $entityManager->remove($aliment);
             $entityManager->flush();
             return $this->redirectToRoute("admin_aliment");

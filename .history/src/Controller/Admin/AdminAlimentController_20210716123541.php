@@ -30,18 +30,18 @@ class AdminAlimentController extends AbstractController
      */
     public function modifierEtAjouterAliment(Aliment $aliment = null, Request $request, EntityManagerInterface $entityManager)
     {
-        if(!$aliment) {
+        if (!$aliment) {
             $aliment = new Aliment();
         }
         $form = $this->createForm(AlimentType::class, $aliment);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($aliment);
             $entityManager->flush();
             return $this->redirectToRoute('admin_aliment');
         };
 
-        return $this->render('admin/admin_aliment/modificationEtAjoutAliment.html.twig', [
+        return $this->render('admin/admin_aliment/modificationAliment.html.twig', [
             'aliment' => $aliment,
             'form' => $form->createView(),
             'isModification' => $aliment->getId() !== null
@@ -49,14 +49,14 @@ class AdminAlimentController extends AbstractController
     }
 
     /**
-     * @Route("/admin/aliment/{id}", name="admin_aliment_suppression", methods="delete")
+     * @Route("/admin/aliment/{id}", name="admin_aliment_suppression", methods="del")
      */
-    public function suppression(Aliment $aliment, Request $request, EntityManagerInterface $entityManager)
+    public function supprimerAliment(Aliment $aliment, Request $request, EntityManagerInterface $entityManager)
     {
-        if ($this->isCsrfTokenValid("delete".$aliment->getId(), $request->get('_token'))) {
+        if ($this->isCsrfTokenValid("del" . $aliment->getId(), $request->get("_token"))) {
             $entityManager->remove($aliment);
             $entityManager->flush();
-            return $this->redirectToRoute("admin_aliment");
+            return $this->redirectToRoute('admin_aliment');
         }
     }
 }

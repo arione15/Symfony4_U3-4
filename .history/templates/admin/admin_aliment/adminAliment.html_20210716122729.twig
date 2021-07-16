@@ -35,11 +35,9 @@
 					<td>{{aliment.lipides}}</td>
 					<td>
 						<a class="btn btn-secondary" href="{{ path('admin_aliment_modification', {'id': aliment.id}) }}">Modifier</a>
-						{# <a class="btn btn-danger" href="{{ path('admin_aliment_suppression', {'id': aliment.id}) }}">Supprimer</a>
-						avec ça et la route @Route("/admin/aliment/suppression/{id}" ça marche #}
-						<form method="POST" action="{{ path('admin_aliment_suppression', {'id': aliment.id}) }}" style="display:inline-block" onsubmit="return confirm('Confirmer la suppression ?')">
-							<input type="hidden" name="_method" value="delete">
-							<input type="hidden" name="_token" value="{{csrf_token("delete" ~ aliment.id)}}">
+						{# <a class="btn btn-danger" href="{{ path('admin_aliment_suppression', {'id': aliment.id}) }}">Supprimer</a> avec ça et la route @Route("/admin/aliment/suppression/{id}" ca marche #}
+						<form method="POST" action="{{ path('admin_aliment_suppression', {'id': aliment.id}) }}">
+							<input type="hidden" name="_method" value="del">
 							<input type="submit" class="btn btn-danger" value="Supprimer">
 						</form>
 					</td>
@@ -48,3 +46,9 @@
 		</tbody>
 	</table>
 {% endblock %}
+
+<form method="POST" style="display:inline-block" action="{{path('admin_aliment_suppression', {'id' : aliment.id})}}">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ aliment.id)}}">
+                    <input type="submit" class="btn btn-danger" value="supprimer" onsubmit="return confirm('Confirmer la suppression ?')">
+                </form>

@@ -39,7 +39,7 @@ class AdminAlimentController extends AbstractController
             $entityManager->persist($aliment);
             $entityManager->flush();
             return $this->redirectToRoute('admin_aliment');
-        };
+        }
 
         return $this->render('admin/admin_aliment/modificationEtAjoutAliment.html.twig', [
             'aliment' => $aliment,
@@ -47,6 +47,27 @@ class AdminAlimentController extends AbstractController
             'isModification' => $aliment->getId() !== null
         ]);
     }
+
+
+
+        return $this->render('admin/admin_aliment/modifEtAjout.html.twig',[
+            "aliment" => $aliment,
+            "form" => $form->createView(),
+            "isModification" => $aliment->getId() !== null
+        ]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * @Route("/admin/aliment/{id}", name="admin_aliment_suppression", methods="delete")

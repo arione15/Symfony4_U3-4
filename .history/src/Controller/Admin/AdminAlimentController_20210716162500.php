@@ -35,7 +35,7 @@ class AdminAlimentController extends AbstractController
         }
         $form = $this->createForm(AlimentType::class, $aliment);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($aliment);
             $entityManager->flush();
             return $this->redirectToRoute('admin_aliment');
@@ -47,6 +47,40 @@ class AdminAlimentController extends AbstractController
             'isModification' => $aliment->getId() !== null
         ]);
     }
+
+
+
+        if(!$aliment) {
+            $aliment = new Aliment();
+        }
+
+        $form = $this->createForm(AlimentType::class,$aliment);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $objectManager->persist($aliment);
+            $objectManager->flush();
+            return $this->redirectToRoute("admin_aliment");
+        }
+
+        return $this->render('admin/admin_aliment/modifEtAjout.html.twig',[
+            "aliment" => $aliment,
+            "form" => $form->createView(),
+            "isModification" => $aliment->getId() !== null
+        ]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * @Route("/admin/aliment/{id}", name="admin_aliment_suppression", methods="delete")

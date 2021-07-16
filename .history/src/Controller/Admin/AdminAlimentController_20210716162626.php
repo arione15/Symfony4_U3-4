@@ -48,6 +48,27 @@ class AdminAlimentController extends AbstractController
         ]);
     }
 
+
+
+        return $this->render('admin/admin_aliment/modifEtAjout.html.twig',[
+            "aliment" => $aliment,
+            "form" => $form->createView(),
+            "isModification" => $aliment->getId() !== null
+        ]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * @Route("/admin/aliment/{id}", name="admin_aliment_suppression", methods="delete")
      */

@@ -39,7 +39,7 @@ class AdminAlimentController extends AbstractController
             $entityManager->persist($aliment);
             $entityManager->flush();
             return $this->redirectToRoute('admin_aliment');
-        };
+        }
 
         return $this->render('admin/admin_aliment/modificationEtAjoutAliment.html.twig', [
             'aliment' => $aliment,

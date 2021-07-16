@@ -36,7 +36,7 @@
 					<td>
 						<a class="btn btn-secondary" href="{{ path('admin_aliment_modification', {'id': aliment.id}) }}">Modifier</a>
 						{# <a class="btn btn-danger" href="{{ path('admin_aliment_suppression', {'id': aliment.id}) }}">Supprimer</a>
-						avec ça et la route @Route("/admin/aliment/suppression/{id}" ça marche #}
+						                        avec ça et la route @Route("/admin/aliment/suppression/{id}" ça marche #}
 						<form method="POST" action="{{ path('admin_aliment_suppression', {'id': aliment.id}) }}" style="display:inline-block" onsubmit="return confirm('Confirmer la suppression ?')">
 							<input type="hidden" name="_method" value="delete">
 							<input type="hidden" name="_token" value="{{csrf_token("delete" ~ aliment.id)}}">

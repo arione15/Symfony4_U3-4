@@ -23,37 +23,39 @@ class AdminAlimentController extends AbstractController
             'aliments' => $aliments
         ]);
     }
-
     /**
      * @Route("/admin/aliment/creation", name="admin_aliment_creation")
      * @Route("/admin/aliment/{id}", name="admin_aliment_modification", methods="GET|POST")
      */
-    public function modifierEtAjouterAliment(Aliment $aliment = null, Request $request, EntityManagerInterface $entityManager)
+    public function ajoutEtModif(Aliment $aliment = null, Request $request, EntityManagerInterface $entityManager)
     {
         if(!$aliment) {
             $aliment = new Aliment();
         }
-        $form = $this->createForm(AlimentType::class, $aliment);
+
+        $form = $this->createForm(AlimentType::class,$aliment);
+
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
+        if($form->isSubmitted() && $form->isValid()){
             $entityManager->persist($aliment);
             $entityManager->flush();
-            return $this->redirectToRoute('admin_aliment');
-        };
+            return $this->redirectToRoute("admin_aliment");
+        }
 
-        return $this->render('admin/admin_aliment/modificationEtAjoutAliment.html.twig', [
-            'aliment' => $aliment,
-            'form' => $form->createView(),
-            'isModification' => $aliment->getId() !== null
+        return $this->render('admin/admin_aliment/modifEtAjout.html.twig',[
+            "aliment" => $aliment,
+            "form" => $form->createView(),
+            "isModification" => $aliment->getId() !== null
         ]);
     }
 
+
     /**
-     * @Route("/admin/aliment/{id}", name="admin_aliment_suppression", methods="delete")
+     * @Route("/admin/aliment/{id}", name="admin_aliment_suppression", methods="del")
      */
     public function suppression(Aliment $aliment, Request $request, EntityManagerInterface $entityManager)
     {
-        if ($this->isCsrfTokenValid("delete".$aliment->getId(), $request->get('_token'))) {
+        if ($this->isCsrfTokenValid("SUP" . $aliment->getId(), $request->get('_token'))) {
             $entityManager->remove($aliment);
             $entityManager->flush();
             return $this->redirectToRoute("admin_aliment");
