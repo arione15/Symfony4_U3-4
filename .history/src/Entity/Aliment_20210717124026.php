@@ -32,10 +32,11 @@ class Aliment
     /**
      * @ORM\Column(type="float")
      * @Assert\Range(
-     *      min = 1,
+     *      min = 0.1,
      *      max = 100,
-     *      notInRangeMessage = "Le prix doit être {{ min }} euro(s) et {{ max }} euro(s).",
-     * )
+     *      minMessage = "Le prix doit être supérieur à {{ limit }} caractères au minimum.",
+     *      maxMessage = "Le prix doit être inférieur à {{ limit }} caractères."
+     * ))
      */
     private $prix;
 
