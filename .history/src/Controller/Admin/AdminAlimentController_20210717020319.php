@@ -61,4 +61,3 @@ class AdminAlimentController extends AbstractController
     }
 }
 
-// le paramètre http_method_override est sur false lorsque l'on débute un nouveau projet, vous devez passer de false a true dans le fichier config/package/framework.yaml à la ligne 5.

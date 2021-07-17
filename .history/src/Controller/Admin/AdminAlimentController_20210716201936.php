@@ -32,14 +32,14 @@ class AdminAlimentController extends AbstractController
     {
         if(!$aliment) {
             $aliment = new Aliment();
-        };
+        }
         $form = $this->createForm(AlimentType::class, $aliment);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($aliment);
             $entityManager->flush();
             return $this->redirectToRoute('admin_aliment');
-        };
+        }
 
         return $this->render('admin/admin_aliment/modificationEtAjoutAliment.html.twig', [
             'aliment' => $aliment,
@@ -53,12 +53,10 @@ class AdminAlimentController extends AbstractController
      */
     public function suppression(Aliment $aliment, Request $request, EntityManagerInterface $entityManager)
     {
-        if ($this->isCsrfTokenValid("SUP" . $aliment->getId(), $request->get("_token"))) {
+        if ($this->isCsrfTokenValid("delete". $aliment->getId(), $request->get('_token'))) {
             $entityManager->remove($aliment);
             $entityManager->flush();
             return $this->redirectToRoute('admin_aliment');
-        };
+        }
     }
 }
-
-// le paramètre http_method_override est sur false lorsque l'on débute un nouveau projet, vous devez passer de false a true dans le fichier config/package/framework.yaml à la ligne 5.
