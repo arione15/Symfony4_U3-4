@@ -36,7 +36,7 @@ class AdminAlimentController extends AbstractController
         $form = $this->createForm(AlimentType::class, $aliment);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
-            $modif = $aliment -> getId() !== null; // si l'aliment n'existe pas, et bien qu'il ait été crée avec if(!$aliment) $aliment = new Aliment, il n'existe pas encore en BD donc getId donne null
+            $modif = $aliment -> getId() !== null; // si l'aliment n'existe pas 
             $entityManager->persist($aliment);
             $entityManager->flush();
             $this -> addFlash("success", ($modif) ? "La modification a été enregistrée !" : "L'ajout a été enregistrée !");
