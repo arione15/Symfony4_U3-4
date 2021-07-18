@@ -43,11 +43,19 @@ class AppFixtures extends Fixture
         $a4 = new Aliment();
         $a4->setNom("Pomme")
             ->setPrix(2.35)
+<<<<<<< HEAD
+            ->setCalories(52)
+            ->setImage("aliments/pomme.png")
+            ->setProteines(0.25)
+            ->setGlucides(11.6)
+            ->setLipides(0.25);
+=======
             ->setCalorie(52)
             ->setImage("aliments/pomme.png")
             ->setProteine(0.25)
             ->setGlucide(11.6)
             ->setLipide(0.25);
+>>>>>>> c5050d72164580e51734290ade01c3fe13ed8581
         $manager->persist($a4);
 
         $manager->flush();

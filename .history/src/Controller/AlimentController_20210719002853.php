@@ -22,6 +22,29 @@ class AlimentController extends AbstractController
     }
 
     /**
+<<<<<<< HEAD
+     * @Route("/aliments/calorie/{calorie}", name="alimentParCalorie")
+     */
+    public function alimentsMoinsCalorique(AlimentRepository $repository, $calorie)
+    {
+        $aliments = $repository -> getAlimentsByProperty('calories', '<', $calorie);
+        return $this->render('aliment/aliments.html.twig', [
+            "aliments" => $aliments,
+            "isCalorie" => true,
+            "isGlucide" => false
+        ]);
+    }
+    /**
+     * @Route("/aliments/glucide/{glucide}", name="alimentsParGlucides")
+     */
+    public function alimentsMoinsGlicimique(AlimentRepository $repository, $glucide)
+    {
+        $aliments = $repository -> getAlimentsByProperty('glucides', '<', $glucide);
+        return $this->render('aliment/aliments.html.twig', [
+            "aliments" => $aliments,
+            "isCalorie" => false,
+            "isGlucide" => true
+=======
      * @Route("/aliments/calorie/{calorie}", name="alimentsParCalorie")
      */
     public function alimentsMoinsCaloriques(AlimentRepository $repository,$calorie)
@@ -44,6 +67,7 @@ class AlimentController extends AbstractController
             'aliments' => $aliments,
             'isCalorie' => false,
             'isGlucide' => true
+>>>>>>> c5050d72164580e51734290ade01c3fe13ed8581
         ]);
     }
 }
