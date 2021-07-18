@@ -153,6 +153,18 @@
         },
         {
             "name": "doctrine/cache",
+<<<<<<< HEAD
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/cache.git",
+                "reference": "ac77408b22cc6c4d0b4947d20a3889be3043566e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/ac77408b22cc6c4d0b4947d20a3889be3043566e",
+                "reference": "ac77408b22cc6c4d0b4947d20a3889be3043566e",
+=======
             "version": "2.1.1",
             "source": {
                 "type": "git",
@@ -163,6 +175,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/cache/zipball/331b4d5dbaeab3827976273e9356b3b453c300ce",
                 "reference": "331b4d5dbaeab3827976273e9356b3b453c300ce",
+>>>>>>> c5050d72164580e51734290ade01c3fe13ed8581
                 "shasum": ""
             },
             "require": {

@@ -15,7 +15,11 @@
         ]
     },
     "doctrine/cache": {
+<<<<<<< HEAD
+        "version": "2.1.0"
+=======
         "version": "2.1.1"
+>>>>>>> c5050d72164580e51734290ade01c3fe13ed8581
     },
     "doctrine/collections": {
         "version": "1.6.7"
