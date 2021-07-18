@@ -3,8 +3,13 @@
 namespace App\Repository;
 
 use App\Entity\Aliment;
+<<<<<<< HEAD
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+=======
+use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+>>>>>>> c5050d72164580e51734290ade01c3fe13ed8581
 
 /**
  * @method Aliment|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,6 +24,7 @@ class AlimentRepository extends ServiceEntityRepository
         parent::__construct($registry, Aliment::class);
     }
 
+<<<<<<< HEAD
     /**
     * @return Aliment[] Returns an array of Aliment objects
     */
@@ -34,6 +40,17 @@ class AlimentRepository extends ServiceEntityRepository
     }
     
     
+=======
+    public function getAlimentParPropriete($propriete, $signe, $calorie){
+        return $this->createQueryBuilder('a')
+        ->andWhere('a.'.$propriete. ' '. $signe.' :val')
+        ->setParameter('val', $calorie)
+        ->getQuery()
+        ->getResult()
+        ;
+    }
+
+>>>>>>> c5050d72164580e51734290ade01c3fe13ed8581
     // /**
     //  * @return Aliment[] Returns an array of Aliment objects
     //  */

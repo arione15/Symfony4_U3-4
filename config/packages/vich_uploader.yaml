@@ -1,4 +1,5 @@
 vich_uploader:
+<<<<<<< HEAD
   db_driver: orm
 
   mappings:
@@ -8,3 +9,12 @@ vich_uploader:
       namer:
         service: Vich\UploaderBundle\Naming\SmartUniqueNamer
         
+=======
+    db_driver: orm
+
+    mappings:
+        aliment_image:
+            uri_prefix: /images/aliments
+            upload_destination: '%kernel.project_dir%/public/images/aliments'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+>>>>>>> c5050d72164580e51734290ade01c3fe13ed8581
