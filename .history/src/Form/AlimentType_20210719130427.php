@@ -2,11 +2,10 @@
 
 namespace App\Form;
 
-use App\Entity\Type;
 use App\Entity\Aliment;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
@@ -23,8 +22,7 @@ class AlimentType extends AbstractType
             ->add('glucide')
             ->add('lipide')
             ->add('type',EntityType::class, [
-                'class' => Type::class,
-                'choice_label' => 'libelle'
+                'class' => ''
             ])
         ;
     }
