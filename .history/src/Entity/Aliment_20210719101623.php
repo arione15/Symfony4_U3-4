@@ -48,7 +48,7 @@ class Aliment
         return $this->imageFile;
     }
 
-    public function setImageFile(?File $imageFile = null): self
+    public function setImageFile(File $imageFile = nul): self
     {
         $this->imageFile = $imageFile;
 
