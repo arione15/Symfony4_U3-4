@@ -80,14 +80,14 @@ class Aliment
 
     /**
      * @ORM\Column(type="datetime")
-     */
+     *      * @ORM\Column(type="datetime", nullable=true)
+    */
     private $updated_at;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Type", inversedBy="aliments")
      */
     private $type;
-
 
     public function getId(): ?int
     {

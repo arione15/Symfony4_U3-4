@@ -79,6 +79,8 @@ class Aliment
     private $lipide;
 
     /**
+            //* @var datetime|null
+            //  * @ORM\Column(type="datetime", nullable=true)
      * @ORM\Column(type="datetime")
      */
     private $updated_at;

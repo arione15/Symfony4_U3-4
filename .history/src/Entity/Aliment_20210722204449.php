@@ -79,7 +79,8 @@ class Aliment
     private $lipide;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @var datetime|null
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
 
@@ -87,7 +88,6 @@ class Aliment
      * @ORM\ManyToOne(targetEntity="App\Entity\Type", inversedBy="aliments")
      */
     private $type;
-
 
     public function getId(): ?int
     {

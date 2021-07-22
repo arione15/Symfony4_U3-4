@@ -88,7 +88,6 @@ class Aliment
      */
     private $type;
 
-
     public function getId(): ?int
     {
         return $this->id;
