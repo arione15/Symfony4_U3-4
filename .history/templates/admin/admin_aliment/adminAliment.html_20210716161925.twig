@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin
+{% endblock %}
+{% block monTitre %}Page d'administration
+{% endblock %}
+
+{% block body %}
+	<a href="{{ path('admin_aliment_creation') }}" class="btn btn-success">Ajouter</a>
+
+	<table class="table">
+		<thead class="table-primary">
+			<tr>
+				<th>Image</th>
+				<th>Aliment</th>
+				<th>Prix</th>
+				<th>Calories</th>
+				<th>Protéines</th>
+				<th>Glucides</th>
+				<th>Lipides</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for aliment in aliments %}
+				<tr>
+					<td><img src="{{ asset('images/' ~ aliment.image) }}" class="persoImgAdmin"></td>
+					<td>
+						<strong>{{aliment.nom}}</strong>
+					</td>
+					<td>{{aliment.prix}}</td>
+					<td>{{aliment.calories}}</td>
+					<td>{{aliment.proteines}}</td>
+					<td>{{aliment.glucides}}</td>
+					<td>{{aliment.lipides}}</td>
+					<td>
+						<a class="btn btn-secondary" href="{{ path('admin_aliment_modification', {'id': aliment.id}) }}">Modifier</a>
+						{# <a class="btn btn-danger" href="{{ path('admin_aliment_suppression', {'id': aliment.id}) }}">Supprimer</a>
+						avec ça et la route @Route("/admin/aliment/suppression/{id}" ça marche #}
+						
+						<form method="POST" action="{{ path('admin_aliment_suppression', {'id': aliment.id}) }}" style="display:inline-block" onsubmit="return confirm('Confirmer la suppression ?')">
+							<input type="hidden" name="_method" value="delete">
+							<input type="hidden" name="_token" value="{{csrf_token("delete" ~ aliment.id)}}">
+							<input type="submit" class="btn btn-danger" value="Supprimer">
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
