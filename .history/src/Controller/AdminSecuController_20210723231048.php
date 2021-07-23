@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Utilisateur;
 use App\Form\InscriptionType;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -15,7 +15,7 @@ class AdminSecuController extends AbstractController
     /**
      * @Route("/inscription", name="inscription")
      */
-    public function index(Request $request, EntityManagerInterface $om, UserPasswordEncoderInterface $encoder)
+    public function index(Request $request, Ent $om, UserPasswordEncoderInterface $encoder)
     {
         $utilisateur = new Utilisateur();
         $form = $this->createForm(InscriptionType::class,$utilisateur);

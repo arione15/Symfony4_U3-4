@@ -72,7 +72,7 @@ class Utilisateur implements UserInterface
 
     public function getVerificationPassword(): ?string
     {
-        return $this->verificationPassword;
+        return $this->password;
     }
 
     public function setVerificationPassword(string $verificationPassword): self
