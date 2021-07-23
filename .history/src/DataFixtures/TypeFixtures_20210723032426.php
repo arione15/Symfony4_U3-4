@@ -16,13 +16,13 @@ class TypeFixtures extends Fixture
         $t1 = new Type();
         $t1->setLibelle("Fruits")
             ->setImage("fruits.jpg")
-            ->setCreatedAt(new DateTime('now'))
+            ->setCreatedAt(new \DateTime('now'))
             ;
         $manager->persist($t1);
         $t2 = new Type();
         $t2->setLibelle("Legumes")
             ->setImage("legumes.jpg")
-            ->setCreatedAt(new DateTime('now'))
+            ->setCreatedAt(new \DateTime('now'))
             ;
         $manager->persist($t2);
 

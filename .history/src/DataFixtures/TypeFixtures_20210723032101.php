@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Type;
 use App\Entity\Aliment;
-use DateTime;
+use DateTimeImmutable;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -16,7 +16,7 @@ class TypeFixtures extends Fixture
         $t1 = new Type();
         $t1->setLibelle("Fruits")
             ->setImage("fruits.jpg")
-            ->setCreatedAt(new DateTime('now'))
+            ->setCreatedAt(new DateTimeImmutable('now'))
             ;
         $manager->persist($t1);
         $t2 = new Type();

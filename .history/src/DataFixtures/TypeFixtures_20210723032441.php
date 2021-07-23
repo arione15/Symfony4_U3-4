@@ -22,7 +22,7 @@ class TypeFixtures extends Fixture
         $t2 = new Type();
         $t2->setLibelle("Legumes")
             ->setImage("legumes.jpg")
-            ->setCreatedAt(new DateTime('now'))
+            ->setCreatedAt(new \DateTime('now'))
             ;
         $manager->persist($t2);
 

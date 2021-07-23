@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Type;
 use App\Entity\Aliment;
-use DateTime;
+use DateTimeImmutable;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
