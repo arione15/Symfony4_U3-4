@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Aliments{% endblock %}
+
+{% block monTitre %}
+    Liste de tous les aliments
+    {% if isCalorie %}
+        avec moins de 50 calories
+    {% elseif isGlucide %}
+        avec moins de 5 glucides
+    {% endif %}
+{% endblock %}
+{% block body %}
+
+{% endblock %}
