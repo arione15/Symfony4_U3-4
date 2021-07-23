@@ -26,8 +26,9 @@ class AdminTypeController extends AbstractController
     }
     
     /**
+     *      * @Route("/admin/type/create", name="ajoutType")
+
      * @Route("/admin/type/{id}", name="modifType", methods="POST | GET")
-     * @Route("/admin/type/create", name="ajoutType")
      */
     public function ajouEtModif(Type $type = null, Request $request, EntityManagerInterface $manager) // $type peut être nul dans le cas de la création. Dans ce cas il faut instancier Type pour pouvoir créer un formulaire qui sera vide du coup
     {
@@ -61,8 +62,4 @@ class AdminTypeController extends AbstractController
             return $this->redirectToRoute("admin_types");
         }
     }
-
-
-
-
 }
